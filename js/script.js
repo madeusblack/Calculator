@@ -140,4 +140,69 @@ function result(oper1,oper2,todo){
     console.log("op2 "+operator1)
      
 }
+document.addEventListener("keydown", keyDownTextField, false);
 
+function keyDownTextField(e) {
+ let keyCoded = e.keyCode;
+    switch (keyCoded) {
+        case 65:{
+            allcleared()
+        }
+        break;
+
+        case 67:{
+            cleared()
+        }    
+        break;
+
+        case 8:{
+            backspace()
+        }                
+        break;
+        case 49:{
+            addtonumber(1)
+        }    
+        break;
+        
+        case 50:{
+            addtonumber(2)
+        }                
+        break;
+        case 51:{
+            addtonumber(3)
+        }    
+        break;
+        
+        case 52:{
+            addtonumber(4)
+        }                
+        break;
+        case 53:{
+            addtonumber(5)
+        }    
+        break;
+        
+        case 54:{
+            addtonumber(6)
+        }                
+        break;
+        case 55:{
+            addtonumber(7)
+        }    
+        break;
+        
+        case 56:{
+            addtonumber(8)
+        }                
+        break;
+        case 57:{
+            addtonumber(9)
+        }    
+        break;
+        
+        case 48:{
+            addtonumber(0)
+        }                
+        break;
+    }
+}
