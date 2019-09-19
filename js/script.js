@@ -8,7 +8,6 @@ let coma="."
 function backspace(){
     initNmbr.pop()
     placeInTheCalc(initNmbr)
-
 }
 function placeInTheCalc(addtocalc){
     operator1=addtocalc.join("")
@@ -26,7 +25,7 @@ function sum(){
     initNmbr=[];
     let strtNwOp=document.getElementById("res");
     strtNwOp.innerHTML=operator1;
-    console.log(operator2);
+    document.getElementById("com").disabled = false;
 }
 function res(){
     opToDo="-"
@@ -35,7 +34,7 @@ function res(){
     initNmbr=[];
     let strtNwOp=document.getElementById("res");
     strtNwOp.innerHTML=operator1;
-    console.log(operator2);
+    document.getElementById("com").disabled = false;
 }
 function mult(){
     opToDo="*"
@@ -44,7 +43,7 @@ function mult(){
     initNmbr=[];
     let strtNwOp=document.getElementById("res");
     strtNwOp.innerHTML=operator1;
-    console.log(operator2);
+    document.getElementById("com").disabled = false;
 }
 function div(){
     opToDo="/"
@@ -53,21 +52,17 @@ function div(){
     initNmbr=[];
     let strtNwOp=document.getElementById("res");
     strtNwOp.innerHTML=operator1;
-    console.log(operator2);
 }
 function clone(op1){
     operator2=op1
 }
 function cleared() {
-    console.log("start clear")
     operator1=0
     initNmbr=[]
     let clean=document.getElementById("res");
     clean.innerHTML=operator1;
-    console.log( operator1)
 }
 function allcleared() {
-    console.log("start clear")
     operator1=0
     initNmbr=[]
     operator2=0;
@@ -75,15 +70,7 @@ function allcleared() {
     opToDo="";
     let clean=document.getElementById("res");
     clean.innerHTML=operator1;
-    console.log( operator1)
-    console.log( operator2)
-    console.log( initNmbr)
-    console.log( "todo="+opToDo)
-
-
-
 }
-
 function result(oper1,oper2,todo){
     if(oper1===""){
         oper1=0
@@ -98,7 +85,6 @@ function result(oper1,oper2,todo){
     initNmbr=[]
     switch(todo){
         case "+":{
-
             finres=noper1+noper2
             let showRes=document.getElementById("res");
             showRes.innerHTML=finres;
@@ -118,7 +104,6 @@ function result(oper1,oper2,todo){
             let showRe3=document.getElementById("res");
             showRe3.innerHTML=finres2;
             break;
-            
         }
         case "/":{
             if(noper1===0){
@@ -130,79 +115,129 @@ function result(oper1,oper2,todo){
             showRe4.innerHTML=finres1;
             break;
         }
-        
-        
-
-    }opToDo=""
+    }
+    opToDo=""
     operator1=finres
     operator2=null
-    console.log("op1"+operator2)
-    console.log("op2 "+operator1)
-     
+    document.getElementById("com").disabled = false;
 }
 document.addEventListener("keydown", keyDownTextField, false);
 
 function keyDownTextField(e) {
- let keyCoded = e.keyCode;
-    switch (keyCoded) {
-        case 65:{
+    console.log(e)
+    switch (e.key) {
+        case "-":{
+            res()
+        }      
+            break;
+        case "a":{
             allcleared()
         }
-        break;
-
-        case 67:{
-            cleared()
-        }    
-        break;
-
-        case 8:{
-            backspace()
-        }                
-        break;
-        case 49:{
-            addtonumber(1)
-        }    
-        break;
-        
-        case 50:{
-            addtonumber(2)
-        }                
-        break;
-        case 51:{
-            addtonumber(3)
-        }    
-        break;
-        
-        case 52:{
-            addtonumber(4)
-        }                
-        break;
-        case 53:{
-            addtonumber(5)
-        }    
-        break;
-        
-        case 54:{
-            addtonumber(6)
-        }                
-        break;
-        case 55:{
-            addtonumber(7)
-        }    
-        break;
-        
-        case 56:{
-            addtonumber(8)
-        }                
-        break;
-        case 57:{
-            addtonumber(9)
-        }    
-        break;
-        
-        case 48:{
-            addtonumber(0)
-        }                
-        break;
+            break;
+    
+        case "c":{
+                cleared()
+            }    
+            break;
+    
+        case "Backspace":{
+                backspace()
+            }                
+            break;
+        case "1":{
+                addtonumber(1)
+            }    
+            break;
+            
+        case "2":{
+                addtonumber(2)
+            }                
+            break;
+        case "3":{
+                addtonumber(3)
+            }    
+            break;
+            
+        case "4":{
+                addtonumber(4)
+            }                
+            break;
+        case "5":{
+                addtonumber(5)
+            }    
+            break;
+            
+        case "6":{
+                addtonumber(6)
+            }                
+            break;
+        case "7":{
+                addtonumber(7)
+            }    
+            break;
+            
+        case "8":{
+                addtonumber(8)
+            }                
+            break;
+        case "9":{
+                addtonumber(9)
+            }    
+            break;
+            
+        case "0":{
+                addtonumber(0)
+            }                
+            break;
+        case "7":{
+                addtonumber(7)
+            }    
+            break;
+            
+        case "8":{
+                addtonumber(8)
+            }                
+            break;
+        case "9":{
+                addtonumber(9)
+            }    
+            break;
+            
+        case "+":{
+                sum()
+            }                
+            break;
+        case "*":{
+                mult()
+            }                
+            break;
+        case "/":{
+                div()
+            }                
+            break;
+        case "=":{
+            result(operator1,operator2,opToDo)
+            }                
+            break;
+        case "Enter":{
+            result(operator1,operator2,opToDo)
+            }                
+            break;
+        case ",":{
+            checkcoma()
+            }                
+            break;
+        case ".":{
+            checkcoma()
+            }                
+            break;
+    }
+}
+function checkcoma(){
+    if(initNmbr.includes(".")===true){
+        return 
+    }
+    else{
+        addtonumber(coma)
     }
 }
