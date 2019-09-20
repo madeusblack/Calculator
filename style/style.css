@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
   }
 .number{
     background-color:darkgray;
@@ -80,15 +81,18 @@ margin-top: 15px;
     border-radius:20px;
     justify-content: space-around;
     position: relative;
-    margin:auto;
-
-    
+    margin:auto; 
 }
 .base{
-    background-color: azure;
     margin:auto;
+    background-image: url("https://pixabay.com/get/57e0d2454f51af14f6d1867dda6d49214b6ac3e456577940742978d093/code-1076533_1920.jpg");
+    opacity:0.95;
+
 }
 #resultbut{
     background-color: rgb(21, 82, 173);
     color:white
+}
+#buttcont{
+    margin-left:1px;
 }
